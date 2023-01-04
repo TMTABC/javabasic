@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../tri"
+		},
+		{
+			"path": "../remotegithub"
+		},
+		{
+			"path": "../w3"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "w3"
+	}
+}
