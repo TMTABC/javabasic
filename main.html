@@ -1,14 +1,44 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-  <script src="./bai6.js">
 
+<body>
+  <h1>Hello KBT</h1>
+  <script>
+    const callback = (error, data) => {
+      if (error) {
+        console.log(">>>calling callback with erron ", error)
+
+      }
+      if (data) {
+        console.log(">>>calling callback with data ", data)
+
+      }
+    }
+    function getTodos(callback) {
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        if (this.readyState == 4 && request.status === 200) {
+          // Typical action to be performed when the document is ready:
+          const data = JSON.parse(request.responseText);
+          callback(undefined, data);
+        }
+        if (this.readyState == 4 && request.status !== 200) {
+          callback("Something wrongs ", undefined)
+
+        }
+      };
+      request.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+      request.send();
+    }
+    getTodos(callback);
   </script>
-  <h1>Hello</h1>
+
 </body>
+
 </html>
